@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="WeDJ/WeDJ.Android/Resources/drawable-hdpi/icon_old.jpg" alt="Logo" width="140" height="140">
+    <img src="WeDJ/WeDJ.Android/Resources/drawable-hdpi/icon_pink.jpg" alt="Logo" width="140" height="140">
   </a>
 
   <h3 align="center">WeDJ</h3>
