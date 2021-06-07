@@ -10,7 +10,7 @@
   <p align="center">
     Crowdsourcing playlist based on geo-location
     <br /> 
-    <a href="https://techcrunch.com/2017/05/14/wedj-lets-bars-and-clubs-create-in-person-social-playlists-in-real-time/">View TechCrunch Elevator Pitch</a> 
+    <a href="https://techcrunch.com/2017/05/14/wedj-lets-bars-and-clubs-create-in-person-social-playlists-in-real-time/">View TechCrunch Article</a> 
   </p>
 </p>
 
