@@ -1,0 +1,8 @@
+﻿<Application
+    x:Class="WeDJ.UWP.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WeDJ.UWP"
+    RequestedTheme="Light">
+
+</Application>

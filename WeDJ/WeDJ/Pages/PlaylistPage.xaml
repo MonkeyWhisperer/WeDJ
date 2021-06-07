@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             xmlns:xfg="clr-namespace:XFGloss;assembly=XFGloss"             
+             xmlns:local="clr-namespace:WeDJ.CustomRenderers;assembly=WeDJ"          
+             
+             x:Class="WeDJ.Pages.PlaylistPage">
+    <xfg:ContentPageGloss.BackgroundGradient>
+        <xfg:Gradient Rotation="180">
+            <xfg:GradientStep StepColor="#d71ee3" StepPercentage="0" />
+            <xfg:GradientStep StepColor="#1079b2" StepPercentage="1" />
+        </xfg:Gradient>
+    </xfg:ContentPageGloss.BackgroundGradient>
+
+    <ContentPage.Content>
+        <Grid RowSpacing="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0" />
+                <RowDefinition Height="0.27*" />
+                <RowDefinition Height="0.56*" />
+                <RowDefinition Height="0.22*" />
+
+                <RowDefinition Height="2.3*" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="0.4*" />
+                <RowDefinition Height="0.35*" />
+                <RowDefinition Height="0.2*" />
+                <RowDefinition Height="1" />
+                <RowDefinition Height="5.52*" />
+                <RowDefinition Height="0*" />
+
+
+                <RowDefinition Height="0.2*" />
+
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.27*" />
+                <ColumnDefinition Width="0.7*" />
+
+
+                <ColumnDefinition Width="0.17*" />
+
+                <ColumnDefinition Width="0.29*" />
+
+                <ColumnDefinition Width="7.14*" />
+
+                <ColumnDefinition Width="0.29*" />
+
+
+                <ColumnDefinition Width="0.37*" />
+
+
+                <ColumnDefinition Width="0.5*" />
+                <ColumnDefinition Width="0.27*" />
+
+            </Grid.ColumnDefinitions>
+
+            <Image Source="menu_white.png" VerticalOptions="Center" HorizontalOptions="Start"   Grid.Column="1" Grid.Row="2"  ></Image>
+
+            <ContentView  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="2">
+                <ContentView.GestureRecognizers >
+                    <TapGestureRecognizer Tapped="OpenMenu2"></TapGestureRecognizer>
+                </ContentView.GestureRecognizers>
+            </ContentView>
+
+            <local:CustomMapEntry PlaceholderColor="Gray" Placeholder="Want a new song?"  Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="3"  FontSize="14" x:Name="SearchEntry" IsVisible="False" ></local:CustomMapEntry>
+
+            <Image Source="close_black.png"  Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="3"  VerticalOptions="Center" HorizontalOptions="End" x:Name="CloseSearchImg" Margin="0,10,10,10" HeightRequest="20" IsVisible="False">
+                <Image.GestureRecognizers >
+                    <TapGestureRecognizer Tapped="ResetSearch"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <ContentView  Grid.Column="4" Grid.Row="2" WidthRequest="40" Grid.ColumnSpan="2" HorizontalOptions="End">
+                <ContentView.GestureRecognizers >
+                    <TapGestureRecognizer Tapped="ResetSearch"></TapGestureRecognizer>
+                </ContentView.GestureRecognizers>
+
+            </ContentView>
+
+            <Label Text="No song playing" x:Name="NoSongImage"  Grid.Column="3" Grid.Row="4"  Grid.RowSpan="3"  Grid.ColumnSpan="3" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="Center" TextColor="White" FontSize="24">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="CircularStd-Book" />
+                        <On Platform="Android" Value="CircularStd-Book.otf#CircularStd-Book" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+
+            <Image  Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="7" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Aspect="AspectFill" x:Name="CurrentSongImage"></Image>
+
+
+
+            <Image Source="close.png" Grid.Column="7" Grid.Row="2" VerticalOptions="Center" HorizontalOptions="End" x:Name="ClosePageImg">
+
+            </Image>
+
+            <BoxView  Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="2" x:Name="ClosePageBox" >
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ClosePage"></TapGestureRecognizer>
+                </BoxView.GestureRecognizers>
+            </BoxView>
+
+
+            <local:CustomSlider HorizontalOptions="FillAndExpand" Margin="0,0,0,0" VerticalOptions="FillAndExpand" Grid.Column="1" Grid.ColumnSpan="7" Grid.Row="6" Maximum="100" Minimum="0"  x:Name="SongProgres" ThumbImage="play.png"  MaxColor="White" MinColor="#D73333" ThumbColor="#E10606" IsVisible="False"></local:CustomSlider>
+
+            <!--<local:CustomSlider Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="5" Maximum="100" Minimum="0" xfg:SliderGloss.MinTrackTintColor="#D73333" xfg:SliderGloss.ThumbTintColor="#E10606"  x:Name="SongProgres"  VerticalOptions="Center"></local:CustomSlider>-->
+
+
+            <BoxView Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="6" x:Name="SongProgresBox"></BoxView>
+
+            <Label Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="7" x:Name="SongTitle" TextColor="White" FontSize="12" HorizontalTextAlignment="Center" VerticalTextAlignment="Start">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="CircularStd-Book" />
+                        <On Platform="Android" Value="CircularStd-Book.otf#CircularStd-Book" />
+                    </OnPlatform>
+                </Label.FontFamily>
+
+            </Label>
+
+            <BoxView BackgroundColor="White" Opacity="0.4" Grid.Column="1" Grid.ColumnSpan="7" Grid.Row="9" x:Name="HorizontalLine" IsVisible="False"></BoxView>
+
+            <!--<local:CustomButton Grid.Column="1" Grid.ColumnSpan="7" Grid.Row="11" Text="ADD SONG" TextColor="White" Clicked="AddSong"></local:CustomButton>-->
+       
+
+            <Grid  Grid.Column="1" Grid.ColumnSpan="7" Grid.Row="4" Grid.RowSpan="7" x:Name="SearchList" >
+                <ScrollView x:Name="SearchListScrollView">
+                </ScrollView>
+
+            </Grid>
+      
+
+                <ScrollView x:Name="PartyListScrollView" Grid.Column="1" Grid.ColumnSpan="7" Grid.Row="10"  >
+
+                </ScrollView>
+       
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

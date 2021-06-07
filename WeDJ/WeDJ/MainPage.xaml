@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:WeDJ.CustomRenderers;assembly=WeDJ"
+             xmlns:xfg="clr-namespace:XFGloss;assembly=XFGloss"
+              xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             
+             x:Class="WeDJ.MainPage">
+
+
+    <xfg:ContentPageGloss.BackgroundGradient>
+        <xfg:Gradient Rotation="180">
+            <xfg:GradientStep StepColor="#00e4ff" StepPercentage="0" />
+            <xfg:GradientStep StepColor="#842dff" StepPercentage="1" />
+        </xfg:Gradient>
+    </xfg:ContentPageGloss.BackgroundGradient> 
+
+    <Grid x:Name="MainPageGrid" RowSpacing="0" IsVisible="True" Grid.Row="0" Grid.Column="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0" />
+            <RowDefinition Height="0.73*" />
+            <RowDefinition Height="0.5*" />
+
+            <RowDefinition Height="0.8*" />
+
+            <RowDefinition Height="1.3*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="0.9*" />
+            <RowDefinition Height="0.25*" />
+            <RowDefinition Height="0.9*" />
+            <RowDefinition Height="2.7*" />
+
+            <RowDefinition Height="1.5*" />
+            <RowDefinition Height="0.3*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.6*" />
+            <ColumnDefinition Width="8.8*" />
+            <ColumnDefinition Width="0.6*" />
+        </Grid.ColumnDefinitions>
+        <BoxView BackgroundColor="Red" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"></BoxView>
+        <StackLayout BackgroundColor="Red"  Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+            <Label  Text="" x:Name="ErrorTypeMsg" Margin="0,0,0,0" TextColor="White" VerticalTextAlignment="Center" HorizontalOptions="Start">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="CircularStd-Bold" />
+                        <On Platform="Android" Value="CircularStd-Bold.otf#CircularStd-Bold" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+            <Label  Text="" x:Name="ErrorMsg"  Margin="-3,0,0,0"  TextColor="White" VerticalTextAlignment="Center" HorizontalOptions="Start">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="CircularStd-Book" />
+                        <On Platform="Android" Value="CircularStd-Book.otf#CircularStd-Book" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+        </StackLayout>
+        <Label Grid.Row="1" Grid.Column="1" Text="Log in"  TextColor="White"  x:Name="LoginLbl"  HorizontalTextAlignment="End" VerticalOptions="Center">
+            <Label.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                    <On Platform="iOS" Value="CircularStd-Medium" />
+                    <On Platform="Android" Value="CircularStd-Medium.otf#CircularStd-Medium" />
+                </OnPlatform>
+            </Label.FontFamily> 
+        </Label>
+        
+        <ContentView  Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
+          
+            <ContentView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="LoginPage" NumberOfTapsRequired="1"></TapGestureRecognizer>
+            </ContentView.GestureRecognizers>
+        </ContentView>
+      
+
+        <Image x:Name="LoginLogo" Source="logo_welcome.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="4" Grid.Column="1"></Image>
+        <local:CustomButton Grid.Row="6" Grid.Column="1" TextColor="#2D9FFF" BackgroundColor="White" Text="Continue with Facebook" Clicked="SubmitFbLogin" x:Name="FacebookButton"></local:CustomButton>
+        <ActivityIndicator Grid.Row="6" Grid.Column="1"  Color="White" IsRunning="True" x:Name="FacebookLoader" IsVisible="False"></ActivityIndicator>
+        <iconize:IconImage   Grid.Row="6" Grid.Column="1" Icon="fa-facebook"  IconSize="21"  x:Name="CompanyIcon" VerticalOptions="Center" HorizontalOptions="Start" Margin="15,-4,0,0" IconColor="#2D9FFF"></iconize:IconImage>
+        <local:CustomButton Grid.Row="8" Grid.Column="1" TextColor="White" Text="Create Account" Clicked="CreateAccount"></local:CustomButton>
+        <local:CustomLinespaceLabel Grid.Row="10" Grid.Column="1" VerticalOptions="End" TextColor="White" x:Name="ToSlbl">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="By signing up, I agree to WeDJ's "/>
+                    <Span Text="Terms of Use"/>
+                    <Span Text=" and "/>
+                    <Span Text="Privacy Policy" />
+                </FormattedString>
+            </Label.FormattedText>
+            <Label.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                    <On Platform="iOS" Value="CircularStd-Book" />
+                    <On Platform="Android" Value="CircularStd-Book.otf#CircularStd-Book" />
+                </OnPlatform>
+            </Label.FontFamily>         
+        </local:CustomLinespaceLabel>
+        <ContentView Grid.Row="10" Grid.Column="1">
+            <ContentView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TermsRedirect" NumberOfTapsRequired="1"></TapGestureRecognizer>
+            </ContentView.GestureRecognizers>
+        </ContentView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:WeDJ.CustomRenderers;assembly=WeDJ"
+             xmlns:xfg="clr-namespace:XFGloss;assembly=XFGloss"             
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"             
+             x:Class="WeDJ.Views.SearchSongPage">
+    <xfg:ContentPageGloss.BackgroundGradient>
+        <xfg:Gradient Rotation="180">
+            <xfg:GradientStep StepColor="#d71ee3" StepPercentage="0" />
+            <xfg:GradientStep StepColor="#1079b2" StepPercentage="1" />
+        </xfg:Gradient>
+    </xfg:ContentPageGloss.BackgroundGradient>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical"   Padding="20, 10, 20, 20">
+            <StackLayout Padding="0,10,0,10">
+                <Entry x:Name="SearchEntry" Placeholder="SEARCH SONG" />
+            </StackLayout>
+            <Grid>
+                <ScrollView x:Name="SearchList">                
+                </ScrollView>                                        
+                <ff:CachedImage Source="loader2.gif" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="Loader" Aspect="AspectFit" IsVisible="False" ></ff:CachedImage>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

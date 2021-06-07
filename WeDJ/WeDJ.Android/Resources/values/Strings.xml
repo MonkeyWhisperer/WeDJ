@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <color name="background">#ffffff</color>
+
+
+  <string name="facebook_app_name">WeDJ</string>
+  <string name="facebook_app_id">290471381467739</string>
+  <string name="fb_login_protocol_scheme">fb290471381467739</string>
+  
+</resources>

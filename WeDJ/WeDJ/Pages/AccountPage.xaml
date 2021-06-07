@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:WeDJ.CustomRenderers;assembly=WeDJ"         
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             
+             x:Class="WeDJ.Pages.AccountPage">
+    <ContentPage.Content>
+        <ScrollView >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackLayout Orientation="Vertical"  x:Name="MainStack1" IsVisible="False" Grid.Row="0" Grid.Column="0">
+                    <StackLayout >
+                        <Grid  Margin="0,30,0,0" Padding="0,0,0,0" RowSpacing="0" x:Name="pImage">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5.5*" />
+                                <ColumnDefinition Width="4.5*" />
+                            </Grid.ColumnDefinitions>
+                            <controls:CircleImage HeightRequest="140" Grid.ColumnSpan="2"  Grid.Row="0" Grid.Column="0"  WidthRequest="140" x:Name="ProfileImage"  BorderThickness="4" BorderColor="DeepSkyBlue" Aspect="AspectFill"  HorizontalOptions="Center" VerticalOptions="End">
+                            </controls:CircleImage>
+                            <Image Source="change_image.png" WidthRequest="60" Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="End">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ChangeImage">
+                                    </TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Grid>
+                        <StackLayout Orientation="Vertical" HeightRequest="160" Margin="30,20,30,10">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40" />
+                                    <RowDefinition Height="40" />
+                                    <RowDefinition Height="40" />
+                                    <RowDefinition Height="40" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2.5*" />
+                                    <ColumnDefinition Width="2.5*" />
+                                    <ColumnDefinition Width="2.5*" />
+                                    <ColumnDefinition Width="2.5*" />
+                                </Grid.ColumnDefinitions>
+                                <local:CustomEntryEdit x:Name="FirstName" Placeholder="Name" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"  TextColor="White"  HorizontalTextAlignment="Start"></local:CustomEntryEdit>                                
+                            </Grid>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout  x:Name="MainStack" Padding="20,10,20,0">
+                    </StackLayout>
+                </StackLayout>
+                <ActivityIndicator x:Name="loading" Grid.Row="0" Grid.Column="0"  VerticalOptions="Center" HorizontalOptions="Center" />
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

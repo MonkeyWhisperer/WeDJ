@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:WeDJ.CustomRenderers;assembly=WeDJ"                                       
+             xmlns:xfg="clr-namespace:XFGloss;assembly=XFGloss"
+             xmlns:devsdna="clr-namespace:DevsDNA;assembly=DevsDNA.GradientBoxView"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    x:Class="WeDJ.Pages.LocationsPage">
+    <ContentPage.Content>
+        <Grid x:Name="MainPageGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0" />
+                <RowDefinition Height="0.43*" />
+                <RowDefinition Height="0.21*" />
+                <RowDefinition Height="0.08*" />
+                <RowDefinition Height="0*" />
+                <RowDefinition Height="0.74*" />
+                <RowDefinition Height="6.18*" />
+                <RowDefinition Height="2.15*" />
+                <RowDefinition Height="0.21*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="8.4*" />
+                <ColumnDefinition Width="0.3*" />
+            </Grid.ColumnDefinitions>
+            <ContentView Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Grid.RowSpan="9" BackgroundColor="#46a1fe" Margin="0,0,0,0" x:Name="ErrorBackground" IsVisible="False">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" /> 
+                    </Grid.ColumnDefinitions>
+                    <Image Source="locationdribbble.png" HorizontalOptions="Center" VerticalOptions="End" Grid.Row="0" Grid.Column="0"></Image>
+                    <local:CustomButton Text="Try Again"  HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Grid.Row="1" Grid.Column="0" TextColor="White" Clicked="TryAgain"></local:CustomButton>
+                </Grid>               
+            </ContentView>            
+            <BoxView BackgroundColor="Red" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"></BoxView>
+            <StackLayout BackgroundColor="Red"  Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,0,0,0">
+                <Label  Text="" x:Name="ErrorTypeMsg" Margin="0,0,0,0" TextColor="White" VerticalTextAlignment="Center" HorizontalOptions="Start">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="CircularStd-Bold" />
+                            <On Platform="Android" Value="CircularStd-Bold.otf#CircularStd-Bold" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+                <Label  Text="" x:Name="ErrorMsg"  Margin="-3,0,0,0"  TextColor="White" VerticalTextAlignment="Center" HorizontalOptions="Start">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="CircularStd-Book" />
+                            <On Platform="Android" Value="CircularStd-Book.otf#CircularStd-Book" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+            </StackLayout>
+            <StackLayout  Grid.Row="0" Grid.Column="0" Grid.RowSpan="9" Grid.ColumnSpan="4"  x:Name="MapPage"/>
+            <Image Source="menu.png" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="StartAndExpand" IsVisible="False" x:Name="MenuIcon">
+            </Image>
+            <ContentView   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="3" >
+                <ContentView.GestureRecognizers >
+                    <TapGestureRecognizer Tapped="OpenMenu"></TapGestureRecognizer>
+                </ContentView.GestureRecognizers>
+            </ContentView>
+            <local:CustomMapEntry Text=" ·   Where to Party?" Keyboard="Email" HorizontalOptions="FillAndExpand" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" x:Name="_whereToParty" IsVisible="false">
+                <local:CustomMapEntry.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS" Value="CircularStd-Book" />
+                        <On Platform="Android" Value="CircularStd-Book.otf#CircularStd-Book" />
+                    </OnPlatform>
+                </local:CustomMapEntry.FontFamily>
+            </local:CustomMapEntry>
+            <Grid  Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="2"    x:Name="LocationInfo">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="3.8*" />
+                    <RowDefinition Height="1.4*" />
+                    <RowDefinition Height="1.4*" />
+                    <RowDefinition Height="1.4*" />                    
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.3*" />
+                    <ColumnDefinition Width="5.4*" />
+                    <ColumnDefinition Width="4*" />
+                    <ColumnDefinition Width="0.3*" />
+                </Grid.ColumnDefinitions> 
+                <devsdna:GradientBoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="5"  TopColor="#DD1BE1"  BottomColor="#832DFE"  />
+                <Label TextColor="White" x:Name="LocationName" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" >
+                    <Label.FontFamily> 
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS" Value="CircularStd-Book" />
+                            <On Platform="Android" Value="CircularStd-Book.otf#CircularStd-Book" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+                <Label TextColor="White" Grid.Row="2" Grid.Column="1">                    
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="·  " x:Name="Location1">
+                                <Span.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS" Value="CircularStd-Bold" />
+                                        <On Platform="Android" Value="CircularStd-Bold.otf#CircularStd-Bold" />
+                                    </OnPlatform>
+                                </Span.FontFamily>
+                            </Span>
+                            <Span Text="Str. Berariei 61" x:Name="Location2">
+                                <Span.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS" Value="CircularStd-Book" />
+                                        <On Platform="Android" Value="CircularStd-Book.otf#CircularStd-Book" />
+                                    </OnPlatform>
+                                </Span.FontFamily>
+                            </Span>                        
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label TextColor="White"  Grid.Row="3" Grid.Column="1" >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="·  " x:Name="Hours1">
+                                <Span.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS" Value="CircularStd-Bold" />
+                                        <On Platform="Android" Value="CircularStd-Bold.otf#CircularStd-Bold" />
+                                    </OnPlatform>
+                                </Span.FontFamily>
+                            </Span>
+                            <Span Text="" x:Name="Hours2">
+                                <Span.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS" Value="CircularStd-Bold" />
+                                        <On Platform="Android" Value="CircularStd-Bold.otf#CircularStd-Bold" />
+                                    </OnPlatform>
+                                </Span.FontFamily>
+                            </Span>
+                            <Span Text="" x:Name="Hours3">
+                                <Span.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS" Value="CircularStd-Bold" />
+                                        <On Platform="Android" Value="CircularStd-Bold.otf#CircularStd-Bold" />
+                                    </OnPlatform>
+                                </Span.FontFamily>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <local:CustomButton Grid.Row="2" Grid.RowSpan="2" Grid.Column="2" x:Name="JoinParyBtn" IsVisible="False" TextColor="White" Text="JOIN PARTY" Clicked="JoinParty" ></local:CustomButton>
+                <local:CustomButton Grid.Row="2" Grid.RowSpan="2" Grid.Column="2" x:Name="ViewpParyBtn" IsVisible="False"  TextColor="White" Text="VIEW PARTY" Clicked="JoinParty" ></local:CustomButton>
+            </Grid>            
+            <ff:CachedImage Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Grid.RowSpan="9" Source="navnav.gif" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="Loader" Aspect="AspectFit" Margin="20,-20,0,0" ></ff:CachedImage>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
